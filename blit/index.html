@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>blit</title>
+        <link rel='stylesheet' type='text/css' href='' />
+        <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    </head>
+    <body>
+        <canvas id='c' width='947' height='631'></canvas>
+        <br />
+        <form>
+            <input id='threshold' min='0' max='255' type='range' width='300' />
+        </form>
+        <script src='blit.js'></script>
+        <script>
+        (function() {
+            var lenna = new Image(),
+                c = document.getElementById('c'),
+                ctx = c.getContext('2d');
+
+            lenna.src = 'map.png';
+
+            lenna.addEventListener('load', function() {
+                ctx.drawImage(lenna, 0, 0);
+
+                var b = blit(ctx);
+
+                document.getElementById('threshold').onchange = function() {
+                    b.threshold(+this.value, +this.value, +this.value);
+                };
+            });
+        })();
+        </script>
+    </body>
+</html>
