@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel='stylesheet' type='text/css' href='' />
+        <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    </head>
+    <body>
+        <img style='display:none;' src='dc.png' />
+        <canvas />
+        <script src='filter.js'></script>
+        <script>
+        window.addEventListener('load', function () {
+            var img = document.querySelector('img');
+            var canvas = document.querySelector('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            var cc = canvas.getContext('2d');
+            cc.drawImage(img, 0, 0);
+
+            var bitmap = cc.getImageData(0, 0, canvas.width, canvas.height);
+            cc.clearRect(0, 0, canvas.width, canvas.height);
+
+			var gray = grayscale(bitmap);
+			//var out = convolute(gray, horizontalSobel);
+			//var out = convolute(gray, verticalSobel);
+			var out = convolute(gray, Sobel);
+			console.log(out, 'out');
+			cc.putImageData(out, 0, 0);
+        }, false);
+        </script>
+    </body>
+</html>
