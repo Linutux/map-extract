@@ -1,0 +1,58 @@
+body {
+    max-width:1000px;
+    margin:100px auto;
+    background:#000;
+}
+
+.poly {
+    stroke-width:3;
+    stroke:cyan;
+    fill:none;
+}
+
+.rel {
+    position:relative;
+}
+
+#controls {
+    background:#222;
+    width:300px;
+    position:absolute;
+    right:0;
+    top:0;
+    color:#eee;
+    box-sizing:border-box;
+    font:normal 14px/20px 'Menlo';
+}
+
+.pad1 {
+    padding:10px;
+}
+
+h2 {
+    margin:0;
+    background:#111;
+}
+
+canvas, svg {
+    top:0;
+    left:0;
+    position:absolute;
+}
+
+svg {
+    pointer-events:none;
+}
+
+.guide {
+    fill:#FFC057;
+    stroke-width:1;
+    stroke:#111;
+}
+
+.tolerance {
+    fill:#FFC057;
+    fill-opacity:0.1;
+    stroke-width:2;
+    stroke:#111;
+}
